@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VistaSupportExtension</title>
+  <link rel="stylesheet" href="css/options.css">
+</head>
+
+<body>
+  	<!--<h1>Extension user preferences:</h1>-->
+  	<!--<div class="option sync">
+	  	<h3>Sync User Preferences</h3>
+	  	<input type="checkbox" name="user-pref-sync" id="user-pref-sync"> <label for="user-pref-sync">Syncronise User Preferences</label>
+	  	<p class="note">When enabled this will store user preferences within the Chrome Syncronised Storage area which is automagically kept in sync across all your machines where Chrome is signed in.</p>
+  	</div>-->
+
+	<div class="option font">
+		<h3>Font Size</h3>
+		<input type="checkbox" name="user-font-size-enabled" id="user-font-size-enabled"> <label for="user-font-size-enabled">Enable User Font Size</label><br>
+		<br>
+		<input type="number" name="user-font-size-value" id="user-font-size-value" max="20" /> <label for="user-font-size-value">Enter desired font size (in px)</label>
+	</div>
+
+	<div class="option shortcuts">
+		<h3>Shortcuts</h3>
+		<input type="checkbox" name="user-shortcuts-enabled" id="user-shortcuts-enabled"> <label for="user-shortcuts-enabled">Enable Shortcut Bar</label><br>
+		<p class="note">When enabled an overlay bar will display at the bottom of incidents with helpful shortcuts.</p>
+	</div>
+
+	<button id="save-user-pref">Save</button>
+	<p class="note inline-block">Tabs must be reloaded after saving to apply settings.</p>
+<!--
+	<div class="option comment">
+		<h3>Comment options - still to come</h3>
+
+		<input type="checkbox" id="user-notes-enabled" name="user-notes-enabled"><label for="user-notes-enabled">Enable User Notes</label> (not currently available)<br>
+		<button id="save-user-notes">Save</button>
+	</div>-->
+
+<!--
+	<hr>
+	/bottom edge/-->
+  <script src="js/options.js"></script>
+</body>
+</html>
