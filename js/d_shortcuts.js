@@ -1,17 +1,5 @@
 //////// THE ON PAGE MARKUP
 
-//create the CSS first
-function shortcutBarStyles() {
-	var sheet = document.createElement("style");
-	sheet.appendChild(document.createTextNode("#xtn-shortcut-bar { background-color: #555; position: fixed; bottom: 0; width: inherit; box-sizing: border-box; font-size: 15px; z-index:9999; }"));
-	sheet.appendChild(document.createTextNode(".xtn-button { border: 1px solid; padding: 10px; background-color: #fff; margin:2px; display:inline-block; }"));
-	sheet.appendChild(document.createTextNode(".xtn-button:hover { background-color: #000; border-color: #fff; color: #fff; }"));
-	sheet.appendChild(document.createTextNode(".float-right { float:right; }"));
-
-	document.head.appendChild(sheet);
-};
-
-
 //create the bar div
 function shortcutBarCreate() {
 	var theBar = document.createElement('div');
@@ -22,27 +10,27 @@ function shortcutBarCreate() {
 	//scrollTop.href = '#';
 	scrollTop.className = 'xtn-button float-right';
 	scrollTop.id = 'xtn-scroll-top';
-	scrollTop.text = '\u2191 Scroll to Top \u2191';
+	scrollTop.text = '\u2191 Incident Details \u2191';
 	scrollTop.addEventListener("click", goScrollTop);
 
 	var scrollBottom = document.createElement('a');
 	//scrollBottom.href = '#';
 	scrollBottom.className = 'xtn-button float-right';
 	scrollBottom.id = 'xtn-scroll-bottom';
-	scrollBottom.text = '\u2193 Scroll to Bottom \u2193';
+	scrollBottom.text = '\u2193 Last Update \u2193';
 	scrollBottom.addEventListener("click", goScrollBottom);
 
 	var customerDetails = document.createElement('a');
 	//customerDetails.href = '#';
 	customerDetails.className = 'xtn-button';
 	customerDetails.id = 'xtn-customer-details';
-	customerDetails.text = 'Customer Details';
+	customerDetails.text = 'Open Customer Details';
 	customerDetails.addEventListener("click", openCustomerDetails);
 
 	var customerSearch = document.createElement('a');
 	customerSearch.className = 'xtn-button';
 	customerSearch.id = 'xtn-customer-search';
-	customerSearch.text = 'Customer Incident Search';
+	customerSearch.text = 'Open Customer Search';
 	customerSearch.addEventListener("click", openCustomerSearch);
 
 
@@ -65,6 +53,7 @@ function shortcutBarCreate() {
 
 
 ///////// THE ACTION FUNCTIONS
+
 //customer deets
 function openCustomerDetails() {
 	var detailsLink = document.getElementById('CustomerSupportDetails').href;
@@ -91,45 +80,3 @@ function goScrollBottom() {
 	var length = updates.length - 1;
 	var lastUpdate = updates[length]; lastUpdate.scrollIntoView('alignToTop');
 };
-
-
-
-////////// TRIGGER IF ENABLED
-chrome.storage.local.get("userPrefSync", function(prefSync) {
-	if (!chrome.runtime.error) {
-		loadShortcutEnabled(prefSync.userPrefSync);
-		//console.log("Loading Prefs");
-	}
-	else {
-		//console.log("error");
-	}
-});
-
-function loadShortcutEnabled(userPrefSync) {
-	if (userPrefSync) {
-		chrome.storage.sync.get("userShortcutsEnabled", function(result) {
-			if (!chrome.runtime.error) {
-				if (result.userShortcutsEnabled) {
-					shortcutBarStyles();
-					shortcutBarCreate();
-				}
-			}
-			else {
-				//console.log("error");
-			}
-		});
-	}
-	else {
-		chrome.storage.local.get("userShortcutsEnabled", function(result) {
-			if (!chrome.runtime.error) {
-				if (result.userShortcutsEnabled) {
-					shortcutBarStyles();
-					shortcutBarCreate();
-				}
-			}
-			else {
-				//console.log("error");
-			}
-		});
-	}
-}

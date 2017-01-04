@@ -17,10 +17,10 @@ function showUpdateSplash() {
 	theSplash.id = "xtn-update-splash";
 
 	var updateHeading = document.createElement('h1');
-	updateHeading.textContent = 'Services Extender has updated!';
+	updateHeading.textContent = 'New Year, new features!';
 
 	var updateText = document.createElement('p');
-	updateText.textContent = "With this new version you must enable each option individually, by default no options are turned on. Just click the icon at the top right of your browser to see the available options. (v1.1.0)";
+	updateText.textContent = "While the majority of this update is behind the scenes (and will help me to add new features more quickly) it does bring one new feature. You can now enable colour highlighting of high priority incidents on the incident listing page. (v1.2.0)";
 
 	var closeButton = document.createElement('span');
 	closeButton.id = 'xtn-splash-close';
@@ -50,11 +50,11 @@ function showUpdateSplash() {
 
 };
 
-var thisVersion = 110;
+var thisVersion = 120;
 
 chrome.storage.local.get('neverSplashThisVersion', function(result) {
 	if (!chrome.runtime.error) {
-		//console.log(result.neverSplashThisVersion);
+		console.info(result.neverSplashThisVersion);
 		if (result.neverSplashThisVersion >= thisVersion) {
 		}
 		else {

@@ -2,8 +2,8 @@
   "name": "Services Extender",
   "short_name": "Services Extender",
   "description": "User-written extension to enhance the look and extend the functionality of the Vista Services website",
-  "version": "1.1.0",
-  "version_name": "1.1.0",
+  "version": "1.2.0",
+  "version_name": "1.2.0",
   "manifest_version": 2,
   "icons": {  "16": "assets/icon_16.png",
               "19": "assets/icon_19.png",
@@ -21,13 +21,15 @@
     "default_popup": "options.html"
   },
   "content_scripts": [ {
-                        "js": [ "js/upsize.js","js/updatesplash.js" ],
-                        "matches": [ "https://support.vista.co/mvc/*ervices/*/*ndex*" ]
+    "js": [ "js/l_tableHighlight.js","js/l_tableWidth.js","js/l_ctrl.js","js/g_ctrl.js","js/updatesplash.js" ],
+    "css": ["css/listing.css"],
+    "matches": [ "https://support.vista.co/mvc/*ervices/*ncidents/*ndex*" ]
                        },{
-                        "js": [ "js/upsize.js","js/shortcuts.js","js/updatesplash.js" ],
+    "js": [ "js/d_shortcuts.js","js/d_fontSize.js","js/d_ctrl.js","js/g_ctrl.js","js/updatesplash.js" ],
+    "css": ["css/detail.css"],
                         "matches": [ "https://support.vista.co/mvc/*ervices/*/*pdate/*" ]
                        }
    ],
-  "permissions": ["storage",
+  "permissions": ["storage","webRequest","webRequestBlocking",
                   "https://support.vista.co/*"]
 }

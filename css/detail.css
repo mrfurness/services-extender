@@ -1,0 +1,27 @@
+#xtn-shortcut-bar { 
+	background-color: #555;
+	position: fixed;
+	bottom: 0;
+	width: inherit;
+	box-sizing: border-box;
+	font-size: 15px;
+	z-index:9999;
+}
+
+.xtn-button {
+	border: 1px solid;
+	padding: 10px;
+	background-color: #fff;
+	margin:2px;
+	display:inline-block;
+}
+
+.xtn-button:hover {
+	background-color: #000;
+	border-color: #fff;
+	color: #fff;
+}
+
+.float-right {
+	float:right;
+}

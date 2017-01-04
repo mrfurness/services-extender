@@ -1,0 +1,35 @@
+.extn-p1, .extn-p1 td { 
+	background-color:#ffcccc !important;
+}
+
+.odd.extn-p1, .odd.extn-p1 td { 
+	background-color:#f7c7c7 !important;
+}
+
+.extn-p1:hover, .extn-p1:hover td { 
+	background-color:#ffbfbf !important;
+}
+
+.odd.extn-p1:hover, .odd.extn-p1:hover td { 
+	background-color:#f6bbbb !important;
+}
+
+.extn-p2, .extn-p2 td {
+	background-color:#ffffcc !important;
+}
+
+.odd.extn-p2, .odd.extn-p2 td {
+	background-color:#f6f6c7 !important;
+}
+
+.extn-p2:hover, .extn-p2:hover td {
+	background-color:#ffffbf !important;
+}
+
+.odd.extn-p2:hover, .odd.extn-p2:hover td {
+	background-color:#f6f6bb !important;
+}
+
+.odd:hover, .odd:hover td {
+	background-color:#dddddd;
+}

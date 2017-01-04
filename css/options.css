@@ -63,43 +63,8 @@ table {
 	font-weight: bold;
 }
 
-/* DOCUMENT STYLES */
-
-body {
-	/*width:400px;*/
-	font-size: 14px;
-	font-family: 'Segoe UI', sans-serif;
-	min-width: 550px;
-	padding: 6px 6px 3px;
-}
-
-h1 {
-	font-size: 24px;
-	font-weight: bold;
-	margin: 0.4em 0 1em;
-}
-
-div.option {
-	padding: 8px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	margin-bottom: 4px;
-}
-
-.option h3 {
-	font-size: 18px;
-	font-weight: bold;
-	border-bottom: 1px dashed #333;
-	margin-bottom: 8px;
-	padding-bottom: 4px
-}
-
-.enabled {
-	box-shadow: inset 0 0 5px 2px #a0fc93;
-}
-
-#user-font-size-value {
-	width:32px;
+.hidden {
+	display: none;
 }
 
 .note {
@@ -110,6 +75,119 @@ div.option {
 	display: inline-block;
 }
 
-.option p {
-	margin: 6px 0;
+/*.enabled {
+	box-shadow: inset 0 0 5px 2px #a0fc93;
+}*/
+
+/* DOCUMENT STYLES */
+
+body {
+	font-size: 14px;
+	font-family: 'Segoe UI', sans-serif;
+	background-color: #ddd;
+}
+
+h1 {
+	font-size: 28px;
+	padding: 28px 20px 30px;
+	background-color: #666;
+	color: #fff;
+	background-image: url('data:image/png;base64,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');
+    background-repeat: no-repeat;
+    background-position: top right;
+}
+
+button {
+	display: block;
+	margin: 10px 0;
+}
+
+/* CONTAINER */
+
+.container {
+	width:800px;
+	margin: 40px auto;
+	background-color: #fff;
+	overflow: hidden;
+}
+
+.container > div {
+	/*margin: 10px;*/
+}
+
+/* CONTENT NAV */
+
+.contentNav {
+	float: left;
+	width: 200px;
+	padding: 40px 10px 20px 30px;
+	box-sizing: border-box;
+}
+
+.contentNav li {
+	padding-bottom:20px;
+	font-size:16px;
+}
+
+.contentNav a, .contentNav li {
+	text-decoration: none;
+	color: #222;
+}
+
+.contentNav a:hover {
+	text-decoration: underline;
+}
+
+.contentNav .current {
+	font-weight: 600;
+}
+
+/* CONTENT AREA */
+
+.content {
+	float: left;
+	width:600px;
+	border-left: 1px solid #ccc;
+	padding: 40px 20px 20px 40px;
+	box-sizing: border-box;
+}
+
+.content .intro {
+	font-size: 1.15em;
+	line-height: 1.3em;
+}
+
+.content ul {
+	margin: 10px 0;
+}
+
+.content li {
+	line-height: 2em;
+}
+
+.content li.group-heading {
+	font-weight: 600;
+	margin-top: 10px;
+}
+
+.content li.group-heading:after {
+    font-family: "Webdings";
+    content: "\f069";
+    padding-left: 4px;
+    color: #bbb;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.content li input {
+	margin-left: 10px;
+}
+
+#user-font-size-value {
+	width:32px;
+}
+
+.content input[type="checkbox"] {
+	position: relative;
+	top: 2px;
 }
