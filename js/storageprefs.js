@@ -14,7 +14,7 @@ function useStorageSync () {
 	  		local=result.userPrefSync;
 	  	};
   	};
-	console.log(local);
+	//console.info(local);
 };
 
 //TODO: migrate keys function to load up all the keys in the old storage location and migrate them to the new storage location

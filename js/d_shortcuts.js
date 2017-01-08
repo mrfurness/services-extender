@@ -47,7 +47,7 @@ function shortcutBarCreate() {
 	}
 	else {
 		console.log('too many Container DIVs');
-		console.log(containerDiv);
+		//console.log(containerDiv);
 	}
 };
 

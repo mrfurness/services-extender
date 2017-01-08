@@ -45,7 +45,7 @@ function showUpdateSplash() {
 	}
 	else {
 		console.log('too many Bodys');
-		console.log(theBody);
+		console.info(theBody);
 	}
 
 };

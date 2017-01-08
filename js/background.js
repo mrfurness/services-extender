@@ -19,7 +19,7 @@
 
 
 chrome.webRequest.onBeforeRequest.addListener(function(details) {
- console.log(details);
+ console.info(details);
 },{
 	urls: [ "https://support.vista.co/mvc/Ajax*" ]
 	},['requestBody']
@@ -27,7 +27,7 @@ chrome.webRequest.onBeforeRequest.addListener(function(details) {
 
 
 chrome.webRequest.onCompleted.addListener(function(details) {
-	console.log(details);
+	console.info(details);
 	//console.log(details.tabId);
 	chrome.tabs.sendMessage(details.tabId, {webRequest:'tableLoaded'});
 	},{
