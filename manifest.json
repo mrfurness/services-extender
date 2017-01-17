@@ -1,23 +1,17 @@
 {
-  "name": "Services Extender",
-  "short_name": "Services Extender",
+  "name": "beta Services Extender",
+  "short_name": "beta Services Extender",
   "description": "User-written extension to enhance the look and extend the functionality of the Vista Services website",
-  "version": "1.2.0",
-  "version_name": "1.2.0",
+  "version": "1.2.6",
+  "version_name": "1.2.6",
   "manifest_version": 2,
-  "icons": {  "16": "assets/icon_16.png",
-              "19": "assets/icon_19.png",
-              "32": "assets/icon_32.png",
-              "38": "assets/icon_38.png",
-              "48": "assets/icon_48.png",
-              "128": "assets/icon_128.png"
+  "icons": {  "128": "assets/icon.png"
             },
   "browser_action": {
     "default_icon": {
-            "16": "assets/icon_16.png",
-            "32": "assets/icon_32.png" 
+            "128": "assets/icon.png"
           },
-    "default_title": "Services Extender - Options",
+    "default_title": "beta Services Extender - Options",
     "default_popup": "options.html"
   },
     "background": {
