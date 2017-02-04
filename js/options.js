@@ -8,3 +8,15 @@ function ShowHideFontSizeInput() {
 		document.getElementById('font-size').classList.add('hidden');
 	}
 };
+
+
+document.getElementById("user-shortcuts-enabled").onclick = ShowHideSearchOptions;
+
+function ShowHideSearchOptions() {
+	if (document.getElementById('user-shortcuts-enabled').checked) {
+		document.getElementById('user-shortcuts-search').disabled = false;
+	}
+	else {
+		document.getElementById('user-shortcuts-search').disabled = true;
+	}
+};

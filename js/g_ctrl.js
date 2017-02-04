@@ -16,27 +16,27 @@ function localOrSync() {
 function loadUserValues(userPrefSync) {
 	//if sync is true, get keys from sync storage
 	if (userPrefSync) {
-		chrome.storage.sync.get(["userHighlightingEnabled","userFontSizeEnabled","userFontSizeValue","userShortcutsEnabled"], function(result) {
+		chrome.storage.sync.get(["userHighlightingEnabled","userFontSizeEnabled","userFontSizeValue","userShortcutsEnabled","userShortcutsSearch"], function(result) {
 			if (!chrome.runtime.error) {
 				pageCtrl(result);
-
+				console.info('loadSyncValues')
 				//console.log(result);
 			}
 			else {
-				//console.log("error");
+				console.log("error");
 			}
 		});
 	}
 	//else get keys from local storage
 	else {
-		chrome.storage.local.get(["userHighlightingEnabled","userFontSizeEnabled","userFontSizeValue","userShortcutsEnabled"], function(result) {
+		chrome.storage.local.get(["userHighlightingEnabled","userFontSizeEnabled","userFontSizeValue","userShortcutsEnabled","userShortcutsSearch"], function(result) {
 			if (!chrome.runtime.error) {
 				pageCtrl(result);
-
+				console.info('loadLocalValues')
 				//console.log(result);
 			}
 			else {
-				//console.log("error");
+				console.log("error");
 			}
 		});
 	}
@@ -56,4 +56,4 @@ chrome.extension.onMessage.addListener(function(msg, sender) {
 
 
 // This line is required to kick everything off when the page first loads
-localOrSync();
+//localOrSync();

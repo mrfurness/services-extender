@@ -51,6 +51,26 @@ function shortcutBarCreate() {
 	}
 };
 
+function addVistaSearchBox () {
+	var searchBox = document.createElement('input');
+	searchBox.type = 'text';
+	searchBox.placeholder = 'Enter text to Vista Search...';
+	searchBox.size = '40';
+	searchBox.className = 'xtn-search';
+	searchBox.id = 'xtn-search';
+	searchBox.addEventListener("keydown", openVistaSearch);
+	
+	/*var searchButton = document.createElement('a');
+	searchButton.className = "xtn-button";
+	searchButton.id = 'xtn-search-button';
+	searchButton.text = 'Go';
+	searchButton.addEventListener("click", openVistaSearch);*/
+
+	shortcutBar = document.getElementById("xtn-shortcut-bar");
+	shortcutBar.appendChild(searchBox);
+
+};
+
 
 ///////// THE ACTION FUNCTIONS
 
@@ -63,9 +83,9 @@ function openCustomerDetails() {
 //customer search
 function openCustomerSearch() {
 	var custId = document.getElementById('SelectedEntityId').value;
-	var searchLink = 'https://support.vista.co/mvc/services/incidents/Index?loadDefaults=false&searchTerm=&WorkItemCategory=Incident&SortColumn=&SortOrder=&IncludeVeezi=false&SelectedBusinessPartner=-1&SelectedStaffAssigned=-1&SelectedVistaTeam=-1&FoundFrom=&FoundTo=&SelectedStatus=-3&ClosedFrom=&ClosedTo=&SelectedSeverity=-1&UpdatedFrom=&UpdatedTo=&SearchText=&SelectedVersion=-1&BillingStatus=ShowAll&SolutionDueIn=-1&SelectedProduct=-1&SelectedReportedBy=-1&IsChargeable=&ShowWorkItemsCurrentlyWatching=false&SelectedEntityId=';
-	searchLink = searchLink+custId;
-	window.open(searchLink,'_blank');
+	var custSearchLink = 'https://support.vista.co/mvc/services/incidents/Index?loadDefaults=false&searchTerm=&WorkItemCategory=Incident&SortColumn=&SortOrder=&IncludeVeezi=false&SelectedBusinessPartner=-1&SelectedStaffAssigned=-1&SelectedVistaTeam=-1&FoundFrom=&FoundTo=&SelectedStatus=-3&ClosedFrom=&ClosedTo=&SelectedSeverity=-1&UpdatedFrom=&UpdatedTo=&SearchText=&SelectedVersion=-1&BillingStatus=ShowAll&SolutionDueIn=-1&SelectedProduct=-1&SelectedReportedBy=-1&IsChargeable=&ShowWorkItemsCurrentlyWatching=false&SelectedEntityId=';
+	custSearchLink = custSearchLink+custId;
+	window.open(custSearchLink,'_blank');
 };
 
 //scroll top
@@ -80,3 +100,12 @@ function goScrollBottom() {
 	var length = updates.length - 1;
 	var lastUpdate = updates[length]; lastUpdate.scrollIntoView('alignToTop');
 };
+
+function openVistaSearch(key) {
+  if (13 == key.keyCode) {
+  	vistaSearchString = document.getElementById('xtn-search').value;
+  	vistaSearchLink = 'http://search.vista.co/#q=' + vistaSearchString;
+  	console.info(vistaSearchString);
+  	window.open(vistaSearchLink,'_blank');
+  }
+}

@@ -22,7 +22,7 @@ document.body.onload = function() {
 };
 
 function getPrefFromSync() {
-	chrome.storage.sync.get(["userHighlightingEnabled","userFontSizeEnabled",/*"userNotesEnabled",*/"userFontSizeValue","userShortcutsEnabled"], function(result) {
+	chrome.storage.sync.get(["userHighlightingEnabled","userFontSizeEnabled",/*"userNotesEnabled",*/"userFontSizeValue","userShortcutsEnabled","userShortcutsSearch"], function(result) {
 		if (!chrome.runtime.error) {
 		  //console.log(result);
 
@@ -31,7 +31,9 @@ function getPrefFromSync() {
 		  //document.getElementById("user-notes-enabled").checked = result.userNotesEnabled;
 		  document.getElementById("user-font-size-value").value = result.userFontSizeValue;
 		  document.getElementById("user-shortcuts-enabled").checked = result.userShortcutsEnabled;
+		  document.getElementById("user-shortcuts-search").checked = result.userShortcutsSearch;
 		  ShowHideFontSizeInput();
+		  ShowHideSearchOptions();
 		}
 		else {
 			console.log("Error loading data from Chrome Sync");
@@ -40,7 +42,7 @@ function getPrefFromSync() {
 }
 
 function getPrefFromLocal() {
-	chrome.storage.local.get(["userHighlightingEnabled","userFontSizeEnabled",/*"userNotesEnabled",*/"userFontSizeValue","userShortcutsEnabled"], function(result) {
+	chrome.storage.local.get(["userHighlightingEnabled","userFontSizeEnabled",/*"userNotesEnabled",*/"userFontSizeValue","userShortcutsEnabled","userShortcutsSearch"], function(result) {
 		if (!chrome.runtime.error) {
 		  //console.log(result);
 
@@ -49,7 +51,9 @@ function getPrefFromLocal() {
 		  //document.getElementById("user-notes-enabled").checked = result.userNotesEnabled;
 		  document.getElementById("user-font-size-value").value = result.userFontSizeValue;
 		  document.getElementById("user-shortcuts-enabled").checked = result.userShortcutsEnabled;
+		  document.getElementById("user-shortcuts-search").checked = result.userShortcutsSearch;
 		  ShowHideFontSizeInput();
+		  ShowHideSearchOptions();
 		}
 		else {
 			console.log("Error loading data from Chrome Sync");
@@ -94,14 +98,14 @@ function saveUserPrefs(syncStorage) {
 			if (chrome.runtime.error) {
 				console.log("Error saving userHighlightingEnabled");
 			}
-			console.info('saved in sync');
+			console.info('userHighlightingEnabled saved in sync');
 		});
 
 		//get and save the value of the checkbox
 		var userFontSizeEnabled = document.getElementById("user-font-size-enabled").checked;
 		chrome.storage.sync.set({ "userFontSizeEnabled" : userFontSizeEnabled }, function() {
 			if (!chrome.runtime.error) { //if there isnt an error
-				console.info('saved');
+				console.info('userFontSizeEnabled saved in sync');
 				/*if (userFontSizeValue === 'true') { //if the setting is to enable
 					document.getElementsByClassName('font')[0].classList.add('enabled');
 				}
@@ -120,7 +124,7 @@ function saveUserPrefs(syncStorage) {
 			if (chrome.runtime.error) {
 				console.log("Error saving userFontSizeValue");
 			}
-			console.info('saved in sync');
+			console.info('userFontSizeValue saved in sync');
 		});
 
 		//get and save the value of the shortcut checkbox
@@ -129,7 +133,16 @@ function saveUserPrefs(syncStorage) {
 			if (chrome.runtime.error) {
 				console.log("Error saving userShortcutsEnabled");
 			}
-			console.info('saved in sync');
+			console.info('userShortcutsEnabled saved in sync');
+		});
+
+		//get and save the value of the shortcut checkbox
+		var userShortcutsSearch = document.getElementById("user-shortcuts-search").checked;
+		chrome.storage.sync.set({ "userShortcutsSearch" : userShortcutsSearch }, function() {
+			if (chrome.runtime.error) {
+				console.log("Error saving userShortcutsSearch");
+			}
+			console.info('userShortcutsSearch saved in sync');
 		});
 	}
 	else {
@@ -139,14 +152,14 @@ function saveUserPrefs(syncStorage) {
 			if (chrome.runtime.error) {
 				console.log("Error saving userHighlightingEnabled");
 			}
-			console.info('saved in sync');
+			console.info('userHighlightingEnabled saved in local');
 		});
 
 		//get and save the value of the checkbox
 		var userFontSizeEnabled = document.getElementById("user-font-size-enabled").checked;
 		chrome.storage.local.set({ "userFontSizeEnabled" : userFontSizeEnabled }, function() {
 			if (!chrome.runtime.error) { //if there isnt an error
-				console.info('saved');
+				console.info('userFontSizeEnabled saved in local');
 				/*if (userFontSizeValue === 'true') { //if the setting is to enable
 					document.getElementsByClassName('font')[0].classList.add('enabled');
 				}
@@ -165,7 +178,7 @@ function saveUserPrefs(syncStorage) {
 			if (chrome.runtime.error) {
 				console.log("Error saving userFontSizeValue");
 			}
-			console.info('saved locally');
+			console.info('userFontSizeValue saved in local');
 		});
 
 		//get and save the value of the shortcut checkbox
@@ -174,7 +187,16 @@ function saveUserPrefs(syncStorage) {
 			if (chrome.runtime.error) {
 				console.log("Error saving userShortcutsEnabled");
 			}
-			console.info('saved in sync');
+			console.info('userShortcutsEnabled saved in local');
+		});
+
+		//get and save the value of the shortcut checkbox
+		var userShortcutsSearch = document.getElementById("user-shortcuts-search").checked;
+		chrome.storage.local.set({ "userShortcutsSearch" : userShortcutsSearch }, function() {
+			if (chrome.runtime.error) {
+				console.log("Error saving userShortcutsSearch");
+			}
+			console.info('userShortcutsSearch saved in local');
 		});
 	}
 
