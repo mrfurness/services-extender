@@ -1,5 +1,4 @@
 #xtn-shortcut-bar {
-	background-color: #555;
 
 }
 
@@ -10,13 +9,10 @@
 	box-sizing: border-box;
 	font-size: 15px;
 	z-index:9999;
+	background-color: #555;
 }
 
-#xtn-shortcut-bar.right {
-	z-index:9999;
-}
-
-.xtn-button {
+.bottom .xtn-button {
 	border: 1px solid;
 	padding: 10px;
 	background-color: #fff;
@@ -24,17 +20,54 @@
 	display:inline-block;
 }
 
-.xtn-button:hover {
+.bottom .xtn-button:hover {
 	background-color: #000;
 	border-color: #fff;
 	color: #fff;
 }
 
-.xtn-search {
+.bottom .xtn-search {
 	padding: 8px;
-	margin-left: 35px;
+	margin-left: 75px;
 }
 
-.float-right {
+.bottom .float-right {
 	float:right;
 }
+
+#xtn-shortcut-bar.left a {
+	display: inline-block;
+    border: 1px solid #f96302;
+    background-color: #f96302;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 5px;
+    text-align: center;
+    float: right;
+    width: 110px;
+    margin-bottom: 5px;
+}
+
+#xtn-shortcut-bar.right.floatMenu {
+	margin-left: 0;
+	top:130px;
+}
+
+#xtn-shortcut-bar.right a {
+	display: block;
+    border: 1px solid #f96302;
+    background-color: #f96302;
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1em;
+    padding: 5px;
+    text-align: center;
+    /*float: right;*/
+    width: 110px;
+    margin-bottom: 5px;
+    margin-left: 978px;
+}
+

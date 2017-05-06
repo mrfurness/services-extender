@@ -33,8 +33,8 @@ function getPrefFromSync() {
 		  document.getElementById("user-shortcuts-enabled").checked = result.userShortcutsEnabled;
 		  document.getElementById("user-shortcuts-search").checked = result.userShortcutsSearch;
 		  document.getElementById("user-shortcuts-position").value = result.userShortcutsPosition;
-		  ShowHideFontSizeInput();
-		  ShowHideSearchOptions();
+		  toggleFontSizeInput();
+		  toggleSearchOptions();
 		}
 		else {
 			console.log("Error loading data from Chrome Sync");
@@ -54,8 +54,8 @@ function getPrefFromLocal() {
 		  document.getElementById("user-shortcuts-enabled").checked = result.userShortcutsEnabled;
 		  document.getElementById("user-shortcuts-search").checked = result.userShortcutsSearch;
 		  document.getElementById("user-shortcuts-position").value = result.userShortcutsPosition;
-		  ShowHideFontSizeInput();
-		  ShowHideSearchOptions();
+		  toggleFontSizeInput();
+		  toggleSearchOptions();
 		}
 		else {
 			console.log("Error loading data from Chrome Sync");

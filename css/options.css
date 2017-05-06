@@ -63,12 +63,9 @@ table {
 	font-weight: bold;
 }
 
-.hidden {
-	display: none;
-}
-
 .note {
 	font-style: italic;
+	color: #aaa;
 }
 
 .inline-block {
@@ -100,13 +97,15 @@ h1 {
 button {
 	display: block;
 	margin: 10px 0;
+	padding: 4px 40px;
+	font-weight: bold;
 }
 
 /* CONTAINER */
 
 .container {
-	width:800px;
-	margin: 40px auto;
+	width:770px;
+	margin: 30px auto;
 	background-color: #fff;
 	overflow: hidden;
 }
@@ -146,7 +145,7 @@ button {
 
 .content {
 	float: left;
-	width:600px;
+	width:570px;
 	border-left: 1px solid #ccc;
 	padding: 40px 20px 20px 40px;
 	box-sizing: border-box;
@@ -155,6 +154,7 @@ button {
 .content .intro {
 	font-size: 1.15em;
 	line-height: 1.3em;
+	margin-bottom: 1em;
 }
 
 .content ul {
@@ -170,7 +170,7 @@ button {
 	margin-top: 10px;
 }
 
-.content li.group-heading:after {
+.content li.info:after {
     font-family: "Webdings";
     content: "\f069";
     padding-left: 4px;
@@ -179,7 +179,7 @@ button {
     cursor: pointer;
 }
 
-.content li input {
+.content li input, .content li select {
 	margin-left: 10px;
 }
 

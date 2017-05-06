@@ -1,7 +1,7 @@
 //////// THE ON PAGE MARKUP
 
 //create the bar div
-function shortcutBarCreate() {
+function shortcutBarCreate(userPosition) {
 	var theBar = document.createElement('div');
 	theBar.id="xtn-shortcut-bar";
 
@@ -24,20 +24,27 @@ function shortcutBarCreate() {
 	//customerDetails.href = '#';
 	customerDetails.className = 'xtn-button';
 	customerDetails.id = 'xtn-customer-details';
-	customerDetails.text = 'Open Customer Details';
+	customerDetails.text = 'Customer Details';
 	customerDetails.addEventListener("click", openCustomerDetails);
 
 	var customerSearch = document.createElement('a');
 	customerSearch.className = 'xtn-button';
 	customerSearch.id = 'xtn-customer-search';
-	customerSearch.text = 'Open Customer Search';
+	customerSearch.text = 'Customer Search';
 	customerSearch.addEventListener("click", openCustomerSearch);
 
 
 	theBar.appendChild(customerDetails);
 	theBar.appendChild(customerSearch);
-	theBar.appendChild(scrollBottom);
-	theBar.appendChild(scrollTop);
+	if (userPosition=='bottom') { //we want these buttons in different orders depending on position
+		theBar.appendChild(scrollBottom);
+		theBar.appendChild(scrollTop);
+	}
+	else {
+		theBar.appendChild(scrollTop);
+		theBar.appendChild(scrollBottom);
+	};
+
 
 
 	//append to div.Container
@@ -75,8 +82,23 @@ function shortcutBarPosition (userPosition) {
 	var shortcutBarPosition = userPosition;
 	shortcutBar = document.getElementById("xtn-shortcut-bar");
 	shortcutBar.className = shortcutBarPosition;
-
-
+	if (shortcutBarPosition == 'left' || shortcutBarPosition == 'right'){
+		shortcutBar.classList.add('floatMenu');
+		shortcutBar.classList.add('floatEnabled');
+		//if it's going on the left, it needs to sit below the existing menu
+		if (shortcutBarPosition == 'left'){
+			defaultMenu = document.getElementsByClassName('floatMenu')[0];
+			defaultMenuParts = defaultMenu.getElementsByTagName('ul');
+			numberOfDefaultMenuParts = defaultMenuParts.length;
+			var defaultMenuHeight = 0;
+			for (var countMenuParts = 0; countMenuParts < numberOfDefaultMenuParts; countMenuParts++){
+				defaultMenuHeight += defaultMenuParts[countMenuParts].clientHeight;
+				defaultMenuHeight += 20; //add extra height to account for the margin between items
+			};
+			//console.info(defaultMenuHeight);
+			shortcutBar.style.marginTop=defaultMenuHeight+'px';
+		};
+	};
 };
 
 function shortcutBarPositionAutoScroll () {

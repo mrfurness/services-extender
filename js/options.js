@@ -1,24 +1,30 @@
-document.getElementById("user-font-size-enabled").onclick = ShowHideFontSizeInput;
+document.getElementById("user-font-size-enabled").onclick = toggleFontSizeInput;
 
-function ShowHideFontSizeInput() {
+function toggleFontSizeInput() {
 	if (document.getElementById('user-font-size-enabled').checked) {
-		document.getElementById('font-size').classList.remove('hidden');
+		document.getElementById('user-font-size-value').disabled = false;
 	}
 	else {
-		document.getElementById('font-size').classList.add('hidden');
+		document.getElementById('user-font-size-value').disabled = true;
 	}
 };
 
 
-document.getElementById("user-shortcuts-enabled").onclick = ShowHideSearchOptions;
+document.getElementById('user-shortcuts-enabled').onclick = toggleSearchOptions;
+document.getElementById('user-shortcuts-position').onclick = toggleSearchOptions;
 
-function ShowHideSearchOptions() {
+function toggleSearchOptions() {
 	if (document.getElementById('user-shortcuts-enabled').checked) {
-		document.getElementById('user-shortcuts-search').disabled = false;
 		document.getElementById('user-shortcuts-position').disabled = false;
+		if (document.getElementById('user-shortcuts-position').value=='bottom') {
+			document.getElementById('user-shortcuts-search').disabled = false;
+		}
+		else {
+			document.getElementById('user-shortcuts-search').disabled = true;			
+		}
 	}
 	else {
-		document.getElementById('user-shortcuts-search').disabled = true;
 		document.getElementById('user-shortcuts-position').disabled = true;
+		document.getElementById('user-shortcuts-search').disabled = true;
 	}
 };

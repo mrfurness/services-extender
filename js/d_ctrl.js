@@ -7,9 +7,9 @@ function pageCtrl(result) {
 	};
 
 	if (result.userShortcutsEnabled) {
-		shortcutBarCreate();
+		shortcutBarCreate(result.userShortcutsPosition);
 		shortcutBarPosition(result.userShortcutsPosition);
-		if (result.userShortcutsSearch) {
+		if (result.userShortcutsSearch && result.userShortcutsPosition=='bottom') {
 			addVistaSearchBox();
 		};
 	};
