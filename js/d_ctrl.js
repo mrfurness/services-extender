@@ -8,6 +8,7 @@ function pageCtrl(result) {
 
 	if (result.userShortcutsEnabled) {
 		shortcutBarCreate();
+		shortcutBarPosition(result.userShortcutsPosition);
 		if (result.userShortcutsSearch) {
 			addVistaSearchBox();
 		};

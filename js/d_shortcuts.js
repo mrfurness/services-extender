@@ -71,6 +71,47 @@ function addVistaSearchBox () {
 
 };
 
+function shortcutBarPosition (userPosition) {
+	var shortcutBarPosition = userPosition;
+	shortcutBar = document.getElementById("xtn-shortcut-bar");
+	shortcutBar.className = shortcutBarPosition;
+
+
+};
+
+function shortcutBarPositionAutoScroll () {
+	var shortcutBar;
+	var shortcutBarYloc;
+	var cx;
+	var cy;
+
+	shortcutBar = document.getElementById("xtn-shortcut-bar");
+	shortcutBarStyles = window.getComputedStyle(shortcutBar);
+	shortcutBarTop = shortcutBarStyles.getPropertyValue('top');
+	shortcutBarTopNum = parseInt(shortcutBarTop,10);
+	//need to do a calculation to understand the page offset
+	shortcutBar.style.top = shortcutBarTopNum + 'px';
+	}
+
+	/*$(window).scroll(function() {
+	    var n = menuYloc + $(document).scrollTop() + "px";
+	    $(name).animate({
+	        top: n
+	    }, {
+	        duration: 500,
+	        queue: !1
+	    })
+	}),
+	cx = 0,
+	cy = 0,*/
+	
+	/*$().mousemove(function(n) {
+	    cx = n.pageX,
+	    cy = n.pageY
+	}),*/
+
+//};
+
 
 ///////// THE ACTION FUNCTIONS
 

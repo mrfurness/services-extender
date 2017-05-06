@@ -16,10 +16,13 @@
 });
 */
 
-
+var theDetails;
 
 chrome.webRequest.onBeforeRequest.addListener(function(details) {
  console.info(details);
+ //theDetails = details;
+ //var postedString = decodeURIComponent(String.fromCharCode.apply(null, new Uint8Array(details.requestBody.raw[0].bytes)));
+ //console.info(postedString);
 },{
 	urls: [ "https://support.vista.co/mvc/Ajax*" ]
 	},['requestBody']

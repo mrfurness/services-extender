@@ -16,7 +16,7 @@ function localOrSync() {
 function loadUserValues(userPrefSync) {
 	//if sync is true, get keys from sync storage
 	if (userPrefSync) {
-		chrome.storage.sync.get(["userHighlightingEnabled","userFontSizeEnabled","userFontSizeValue","userShortcutsEnabled","userShortcutsSearch"], function(result) {
+		chrome.storage.sync.get(["userHighlightingEnabled","userFontSizeEnabled","userFontSizeValue","userShortcutsEnabled","userShortcutsSearch","userShortcutsPosition"], function(result) {
 			if (!chrome.runtime.error) {
 				pageCtrl(result);
 				console.info('loadSyncValues')
@@ -29,7 +29,7 @@ function loadUserValues(userPrefSync) {
 	}
 	//else get keys from local storage
 	else {
-		chrome.storage.local.get(["userHighlightingEnabled","userFontSizeEnabled","userFontSizeValue","userShortcutsEnabled","userShortcutsSearch"], function(result) {
+		chrome.storage.local.get(["userHighlightingEnabled","userFontSizeEnabled","userFontSizeValue","userShortcutsEnabled","userShortcutsSearch","userShortcutsPosition"], function(result) {
 			if (!chrome.runtime.error) {
 				pageCtrl(result);
 				console.info('loadLocalValues')

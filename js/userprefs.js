@@ -22,7 +22,7 @@ document.body.onload = function() {
 };
 
 function getPrefFromSync() {
-	chrome.storage.sync.get(["userHighlightingEnabled","userFontSizeEnabled",/*"userNotesEnabled",*/"userFontSizeValue","userShortcutsEnabled","userShortcutsSearch"], function(result) {
+	chrome.storage.sync.get(["userHighlightingEnabled","userFontSizeEnabled",/*"userNotesEnabled",*/"userFontSizeValue","userShortcutsEnabled","userShortcutsSearch","userShortcutsPosition"], function(result) {
 		if (!chrome.runtime.error) {
 		  //console.log(result);
 
@@ -32,6 +32,7 @@ function getPrefFromSync() {
 		  document.getElementById("user-font-size-value").value = result.userFontSizeValue;
 		  document.getElementById("user-shortcuts-enabled").checked = result.userShortcutsEnabled;
 		  document.getElementById("user-shortcuts-search").checked = result.userShortcutsSearch;
+		  document.getElementById("user-shortcuts-position").value = result.userShortcutsPosition;
 		  ShowHideFontSizeInput();
 		  ShowHideSearchOptions();
 		}
@@ -42,7 +43,7 @@ function getPrefFromSync() {
 }
 
 function getPrefFromLocal() {
-	chrome.storage.local.get(["userHighlightingEnabled","userFontSizeEnabled",/*"userNotesEnabled",*/"userFontSizeValue","userShortcutsEnabled","userShortcutsSearch"], function(result) {
+	chrome.storage.local.get(["userHighlightingEnabled","userFontSizeEnabled",/*"userNotesEnabled",*/"userFontSizeValue","userShortcutsEnabled","userShortcutsSearch","userShortcutsPosition"], function(result) {
 		if (!chrome.runtime.error) {
 		  //console.log(result);
 
@@ -52,6 +53,7 @@ function getPrefFromLocal() {
 		  document.getElementById("user-font-size-value").value = result.userFontSizeValue;
 		  document.getElementById("user-shortcuts-enabled").checked = result.userShortcutsEnabled;
 		  document.getElementById("user-shortcuts-search").checked = result.userShortcutsSearch;
+		  document.getElementById("user-shortcuts-position").value = result.userShortcutsPosition;
 		  ShowHideFontSizeInput();
 		  ShowHideSearchOptions();
 		}
@@ -144,6 +146,15 @@ function saveUserPrefs(syncStorage) {
 			}
 			console.info('userShortcutsSearch saved in sync');
 		});
+
+		//get and save the value of the shortcut position select
+		var userShortcutsPosition = document.getElementById("user-shortcuts-position").value;
+		chrome.storage.sync.set({ "userShortcutsPosition" : userShortcutsPosition }, function() {
+			if (chrome.runtime.error) {
+				console.log("Error saving userShortcutsPosition");
+			}
+			console.info('userShortcutsPosition saved in sync');
+		});
 	}
 	else {
 		//get and save the value of the shortcut checkbox
@@ -197,6 +208,15 @@ function saveUserPrefs(syncStorage) {
 				console.log("Error saving userShortcutsSearch");
 			}
 			console.info('userShortcutsSearch saved in local');
+		});
+
+		//get and save the value of the shortcut postion select
+		var userShortcutsPosition = document.getElementById("user-shortcuts-position").value;
+		chrome.storage.local.set({ "userShortcutsPosition" : userShortcutsPosition }, function() {
+			if (chrome.runtime.error) {
+				console.log("Error saving userShortcutsPosition");
+			}
+			console.info('userShortcutsPosition saved in local');
 		});
 	}
 

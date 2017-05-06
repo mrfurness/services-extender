@@ -15,8 +15,10 @@ document.getElementById("user-shortcuts-enabled").onclick = ShowHideSearchOption
 function ShowHideSearchOptions() {
 	if (document.getElementById('user-shortcuts-enabled').checked) {
 		document.getElementById('user-shortcuts-search').disabled = false;
+		document.getElementById('user-shortcuts-position').disabled = false;
 	}
 	else {
 		document.getElementById('user-shortcuts-search').disabled = true;
+		document.getElementById('user-shortcuts-position').disabled = true;
 	}
 };
