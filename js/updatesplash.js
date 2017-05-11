@@ -17,10 +17,10 @@ function showUpdateSplash() {
 	theSplash.id = "xtn-update-splash";
 
 	var updateHeading = document.createElement('h1');
-	updateHeading.textContent = 'New Year, new features!';
+	updateHeading.textContent = 'Look left & right!';
 
 	var updateText = document.createElement('p');
-	updateText.textContent = "While the majority of this update is behind the scenes (and will help me to add new features more quickly) it does bring one new feature. You can now enable colour highlighting of high priority incidents on the incident listing page. (v1.2.0)";
+	updateText.textContent = "There are now options to choose the position of the shortcut bar - either on the left, right or bottom (classic). You can also now add a Vista Search box to the bottom shortcuts bar.  (v1.3.0)";
 
 	var closeButton = document.createElement('span');
 	closeButton.id = 'xtn-splash-close';
@@ -50,7 +50,7 @@ function showUpdateSplash() {
 
 };
 
-var thisVersion = 120;
+var thisVersion = 130;
 
 chrome.storage.local.get('neverSplashThisVersion', function(result) {
 	if (!chrome.runtime.error) {
