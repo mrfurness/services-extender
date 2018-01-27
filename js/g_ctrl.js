@@ -56,4 +56,4 @@ chrome.extension.onMessage.addListener(function(msg, sender) {
 
 
 // This line is required to kick everything off when the page first loads
-//localOrSync();
+localOrSync();
