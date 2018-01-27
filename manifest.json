@@ -18,7 +18,7 @@
     "scripts": ["js/background.js"]
   },
   "content_scripts": [ {
-    "js": [ "js/l_tableHighlight.js","js/l_tableWidth.js","js/l_ctrl.js","js/g_ctrl.js","js/updatesplash.js" ],
+    "js": [ "js/l_tableHighlight.js","js/l_tableWidth.js","js/l_tableComments.js","js/l_ctrl.js","js/g_ctrl.js","js/updatesplash.js" ],
     "css": ["css/listing.css"],
     "matches": [ "https://support.vista.co/mvc/*ervices/*ncidents*" ]
                        },{

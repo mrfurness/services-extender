@@ -1,6 +1,6 @@
 //WHEN THE POPUP OPENS, SET THE VALUES FROM STORAGE
 
-//Removing this function until I know more about the sync storage object
+//Removing this function until I understand more about the sync storage object
 /*
 document.body.onload = function() {
 	chrome.storage.local.get("userPrefSync", function(result) {
@@ -40,8 +40,18 @@ function getPrefFromSync() {
 			console.log("Error loading data from Chrome Sync");
 		}
 	});
-}
-
+};
+/*
+chrome.storage.sync.get(["keys"], function(result) {
+	if (!chrome.runtime.error) {
+	  //console.log(result);
+	  //do things
+	}
+	else {
+		console.log("Error loading data from Chrome Sync");
+	}
+});
+*/
 function getPrefFromLocal() {
 	chrome.storage.local.get(["userHighlightingEnabled","userFontSizeEnabled",/*"userNotesEnabled",*/"userFontSizeValue","userShortcutsEnabled","userShortcutsSearch","userShortcutsPosition"], function(result) {
 		if (!chrome.runtime.error) {
@@ -61,7 +71,7 @@ function getPrefFromLocal() {
 			console.log("Error loading data from Chrome Sync");
 		}
 	});
-}
+};
 
 
 ////////////////////// UPDATE FUNCTIONS ///////////////////////////////////////////////////////

@@ -1,3 +1,5 @@
+/*********** Row colouring styles ***********/
+
 .extn-p1, .extn-p1 td { 
 	background-color:#ffcccc !important;
 }
@@ -32,4 +34,131 @@
 
 .odd:hover, .odd:hover td {
 	background-color:#dddddd;
+}
+
+/*********** Comment width adjustments **********/
+.extn-tablecomments .body-wrapper {
+	margin-left: 130px;
+}
+
+.extn-tablecomments .Container {
+	width:initial;
+}
+
+.extn-tablecomments #PageHeaderWrapper {
+	border-bottom: 1px #ccc solid;
+    background-color: #eee;
+}
+
+.extn-tablecomments #PageHeaderWrapper > div {
+	width:978px;
+}
+
+.extn-tablecomments table {
+	table-layout: fixed;
+	width: 100%;
+}
+
+.extn-tablecomments table td.extn-tablecomments {
+
+}
+
+.extn-tablecomments table .extn-editbutton {
+	width: 5%;
+	cursor: pointer;
+    background-image: url(data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAABS2lUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS42LWMxMzggNzkuMTU5ODI0LCAyMDE2LzA5LzE0LTAxOjA5OjAxICAgICAgICAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIi8+CiA8L3JkZjpSREY+CjwveDp4bXBtZXRhPgo8P3hwYWNrZXQgZW5kPSJyIj8+IEmuOgAAAWdJREFUOI2t1LFLHEEcxfGP4cBAVEwgmEZLBdNI0CqVh3aSPyAgChExSmwkjRAhEJNOJSYgWJomBDtLQUEQib0HZ2EQQVFBC7GwicXMwuYw5+3pD5aZfex89828meGeqyafz1c7tg0F/MAA/sKDO5hpQw36cYmhuwCno6MGrOMhFlHIVQF7jcnY/45udOE3aqtxOIcTLGAsOm1FI15kBU7jKSbwFs1YE4JZwXkWYIsw1S0sRe1AmDbskS2UZOD4f/TRLMAe9Anrtp3S36MJw7ig8o29L6zXE5xF7RkOsYPnyYeVOHwXYeMpGHyJ7Uj649uAj/E1OpxP6S8xiF/YyAKcje2rEv1bbEsDKgvsFA494awmNYwOfMBRFmBrql/ERyGIGZzi002DygGLJe9TQqqPlARRKXDPv1NNajk+N1YOvajDVdTqsSkk+wftUT8WrqjPZUzI4aewPdI1I1wAu/Fnb7BaDpTUNZ37Q2+RgI04AAAAAElFTkSuQmCC);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid #eee;
+}
+
+.extn-tablecomments table .extn-editbutton:hover {
+	background-color: #fff !important;
+	border: 1px solid #333;
+}
+
+.extn-tablecomments table .extn-commenttext {
+	width: 95%;
+	padding-left: 8px;
+}
+
+td.extn-comment {
+	padding:0 !important;
+}
+
+td.extn-comment > table {
+	min-height: 28px;
+}
+
+td.extn-comment > table td {
+	padding:0;
+	border: 0;
+}
+
+/********** Comment editing modal window ***********/
+#extn-modalwrapper {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 977;
+}
+
+#extn-modal {
+	margin: 150px auto;
+	border: 2px solid #333;
+	background-color: #fff;
+	padding: 12px 18px;
+	width: min-content;
+	overflow: hidden;
+}
+
+#extn-modal h3 {
+	font-size: 20px;
+}
+
+#extn-modal a {
+	border:1px solid #000;
+	padding:4px 6px 5px;
+	background-color:#ddd;
+	float:left;
+	border-radius:3px;
+	font-size:14px;
+}
+
+#extn-modal h2 {
+	margin-top: 0;
+	border: none;
+}
+
+#extn-modal textarea {
+	resize: none;
+	margin-bottom: 10px;
+	font-size: 14px;
+	padding: 8px;
+}
+
+#extn-modal a {
+	color:#fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+    padding:6px 12px;
+}
+
+#extn-modal a:hover {
+	background-color: #3276b1;
+    border-color: #285e8e;
+    text-decoration: none;
+}
+
+#extn-modal a.extn-save {
+	float: right;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+
+#extn-modal a.extn-save:hover {
+	background-color: #47a447;
+    border-color: #398439;
 }

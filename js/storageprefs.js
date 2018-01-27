@@ -15,6 +15,7 @@ function useStorageSync () {
 	  	};
   	};
 	//console.info(local);
+	//TODO: make this function actually return something so that it can be used by the comment tool
 };
 
 //TODO: migrate keys function to load up all the keys in the old storage location and migrate them to the new storage location

@@ -4,5 +4,6 @@ function pageCtrl(result) {
 	if (result.userHighlightingEnabled) {
 		tableHighlight();
 		tableWidth();
+		tableComments();
 	};
 };
