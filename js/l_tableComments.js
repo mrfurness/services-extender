@@ -1,4 +1,5 @@
 var masterList = new Object();
+var incident = new Object();
 
 function prepDataTables() {
 	//add a class to the body to drive the injected CSS
@@ -33,7 +34,7 @@ function prepDataTables() {
 				//find the incident number
 				let theRow = theRows[rowCount];
 				let incidentNumber = theRow.cells[1].textContent;
-				chrome.storage.local.get([incidentNumber], function(result) {
+				chrome.storage.local.get({[incidentNumber] : incident}, function(result) {
 					if (!chrome.runtime.error) {
 						console.info(result);
 
@@ -134,15 +135,18 @@ function editComment(incidentNumber) {
 		console.info(theComment.value);
 		theComment.value = loadComment(incidentNumber);
 	};*/
-	chrome.storage.local.get({[incidentNumber]:"empty"}, function(result) {
+	chrome.storage.local.get({[incidentNumber] : incident }, function(result) {
 		if (!chrome.runtime.error) {
 			console.info(incidentNumber);
 			console.info(result);
+			//console.info(result.comment);
 			//var inc = String(incidentNumber);
-			console.info(result[incidentNumber]);
-			loadedComment = result[incidentNumber];
-			if (loadedComment !== "empty") {
-				theComment.value = result[incidentNumber]; //does this work given it's async?
+			console.info(result[incidentNumber].comment);
+			loadedComment = result[incidentNumber].comment;
+				console.info(loadedComment);
+			if (loadedComment !== undefined) {
+				console.info(loadedComment);
+				theComment.value = loadedComment; //does this work given it's async?
 			};
 			//assemble modal
 			theModal.appendChild(theHeading);
@@ -165,7 +169,7 @@ function editComment(incidentNumber) {
 	};*/
 
 };
-
+var theIncident;
 function saveComment() {
 	//get incidnt number and comment from modal
 	theIncident = document.getElementById("extn-incidentheading");
@@ -174,21 +178,28 @@ function saveComment() {
 	theComment = theComment.value;
 	//save updates
 	console.info(theIncident + " : " + theComment);
-	chrome.storage.sync.set({[theIncident] : theComment }, function() {
+	incident.comment = theComment;
+	//console.info(incident);
+	chrome.storage.sync.set({[theIncident] : incident }, function() {
+		console.info("sync start")
 			if (chrome.runtime.error) {
 				console.log("Error saving comment - Incident #" + theIncident);
 
 			}
 			console.info("Success saving - Incident #" + theIncident + " | " + theComment);
-			chrome.storage.local.get([theIncident], function(result) {
-				if (!chrome.runtime.error) {
-					console.info(result);
-					console.info(result[theIncident]);
+			chrome.storage.local.get({[theIncident] : incident }, function(result) {
+				console.info("reloading to check");
+				if (chrome.runtime.error) {
+					console.log("Error loading data from Chrome Sync");
 			  	}
 				else {
-					console.log("Error loading data from Chrome Sync");
+					//console.info(theIncident);
+					console.info(result);
+					//console.info(result[theIncident]);
+					//console.info(result.comment);
 				};
 		  	});
+		  	/*
 			chrome.storage.local.get("125773", function(result) {
 				if (!chrome.runtime.error) {
 					console.info(result);
@@ -196,7 +207,7 @@ function saveComment() {
 				else {
 					console.log("Error loading data from Chrome Sync");
 				};
-		  	});
+		  	});*/
 		});
 
 	//create object
